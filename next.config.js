@@ -8,6 +8,15 @@ const nextConfig = {
   images: {
     domains: [CONTENTFUL_IMAGES_DOMAIN],
   },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/recipes",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
