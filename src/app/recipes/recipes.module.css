@@ -10,3 +10,9 @@
 .heading {
   margin-bottom: 1rem;
 }
+
+.recipeDetails {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}

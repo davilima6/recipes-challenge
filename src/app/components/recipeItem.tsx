@@ -22,20 +22,21 @@ const StyledHeading = styled.h5`
 `;
 
 const StyledImage = styled(Image)`
+  border-radius: var(--border-radius);
   display: block;
   height: 100%;
   width: 100%;
 `;
 
 const StyledImageLink = styled(Link)`
-  display: block;
+  display: inline-flex;
   margin-bottom: 0.5rem;
   position: relative;
 `;
 
 const StyledImageLabel = styled.span`
   background-color: #0070f3;
-  border-top-right-radius: 5px;
+  border-top-right-radius: var(--border-radius);
   bottom: 0;
   color: #fff;
   padding: 0 5px;

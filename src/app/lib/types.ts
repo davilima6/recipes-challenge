@@ -6,13 +6,23 @@ export type Recipe = {
   title: string;
 };
 
+export type RecipeDetails = Recipe & {
+  chef: { name: string } | null;
+  tagsCollection: {
+    total: number;
+    items: {
+      name: string;
+    };
+  };
+};
+
 export type Response = {
   error?: Error;
   loading: boolean;
 };
 
 export type RecipeResponse = Response & {
-  data: { recipe: Recipe };
+  data: { recipe: RecipeDetails };
 };
 
 export type RecipesResponse = Response & {
