@@ -45,7 +45,7 @@ const StyledImageLabel = styled.span`
   z-index: 10;
 `;
 
-const StyledText = styled.p`
+const StyledDescription = styled.div`
   font-size: 1rem;
   margin: 0;
 `;
@@ -61,7 +61,7 @@ export function RecipeItem({ recipe }: RecipeItemProps) {
   } = formattedRecipe;
 
   return (
-    <StyledListItem key={id}>
+    <StyledListItem>
       <StyledHeading>{title}</StyledHeading>
       <StyledImageLink
         href={`/recipes/${id}`}
@@ -75,7 +75,7 @@ export function RecipeItem({ recipe }: RecipeItemProps) {
         />
         <StyledImageLabel>{calories} kcal</StyledImageLabel>
       </StyledImageLink>
-      <StyledText dangerouslySetInnerHTML={{ __html: description }} />
+      <StyledDescription dangerouslySetInnerHTML={{ __html: description }} />
     </StyledListItem>
   );
 }

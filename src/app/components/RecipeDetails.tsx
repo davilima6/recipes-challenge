@@ -109,7 +109,10 @@ export function RecipeDetails({ recipe }: RecipeDetailsProps) {
             A suggestion from chef {chef.name}
           </StyledRecipeAuthor>
         ) : null}
-        <StyledDescription dangerouslySetInnerHTML={{ __html: description }} />
+        <StyledDescription
+          as="div"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
         <Tags tags={tagsCollection} />
       </StyledArticle>
     </>
