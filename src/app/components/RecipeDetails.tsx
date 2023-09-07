@@ -12,6 +12,10 @@ type RecipeDetailsProps = {
   recipe: RecipeDetails;
 };
 
+const StyledMain = styled.main`
+  padding: 1rem;
+`;
+
 const StyledBackLink = styled(Link)`
   color: #0000ee;
   display: block;
@@ -28,7 +32,6 @@ const StyledArticle = styled.article`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   position: relative;
 `;
 
@@ -93,28 +96,30 @@ export function RecipeDetails({ recipe }: RecipeDetailsProps) {
       <StyledBackLink href="/recipes" title="Click for the recipes listing">
         Back to listing of recipes
       </StyledBackLink>
-      <StyledArticle>
-        <StyledHeading>{title}</StyledHeading>
-        <StyledImageContainer>
-          <StyledImage
-            src={recipePhotoUrl}
-            alt={title}
-            height={height}
-            width={width}
+      <StyledMain>
+        <StyledArticle>
+          <StyledHeading>{title}</StyledHeading>
+          <StyledImageContainer>
+            <StyledImage
+              src={recipePhotoUrl}
+              alt={title}
+              height={height}
+              width={width}
+            />
+            <StyledImageLabel>{calories} kcal</StyledImageLabel>
+          </StyledImageContainer>
+          {chef ? (
+            <StyledRecipeAuthor>
+              A suggestion from chef {chef.name}
+            </StyledRecipeAuthor>
+          ) : null}
+          <StyledDescription
+            as="div"
+            dangerouslySetInnerHTML={{ __html: description }}
           />
-          <StyledImageLabel>{calories} kcal</StyledImageLabel>
-        </StyledImageContainer>
-        {chef ? (
-          <StyledRecipeAuthor>
-            A suggestion from chef {chef.name}
-          </StyledRecipeAuthor>
-        ) : null}
-        <StyledDescription
-          as="div"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
-        <Tags tags={tagsCollection} />
-      </StyledArticle>
+          <Tags tags={tagsCollection} />
+        </StyledArticle>
+      </StyledMain>
     </>
   );
 }
