@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
+import { Tags } from "../components/tags";
 import { RecipeDetails } from "../lib/types";
 import { useFormattedRecipe } from "../lib/useFormattedRecipe";
 
@@ -12,7 +13,7 @@ type RecipeDetailsProps = {
 };
 
 const StyledBackLink = styled(Link)`
-  color: #0000EE;
+  color: #0000ee;
   display: block;
   font-size: 0.75rem;
   font-style: italic;
@@ -75,7 +76,6 @@ const StyledDescription = styled(StyledText)`
   padding: 1rem 3rem;
 `;
 
-
 export function RecipeDetails({ recipe }: RecipeDetailsProps) {
   const formattedRecipe = useFormattedRecipe(recipe);
   const {
@@ -83,6 +83,7 @@ export function RecipeDetails({ recipe }: RecipeDetailsProps) {
     chef,
     description,
     photo: { height, url: recipePhotoUrl, width },
+    tagsCollection,
     title,
   } = formattedRecipe;
 
@@ -102,9 +103,14 @@ export function RecipeDetails({ recipe }: RecipeDetailsProps) {
           />
           <StyledImageLabel>{calories} kcal</StyledImageLabel>
         </StyledImageContainer>
-        {chef ? <StyledRecipeAuthor>A suggestion from chef {chef.name}</StyledRecipeAuthor> : null}
+        {chef ? (
+          <StyledRecipeAuthor>
+            A suggestion from chef {chef.name}
+          </StyledRecipeAuthor>
+        ) : null}
         <StyledDescription dangerouslySetInnerHTML={{ __html: description }} />
-      </StyledArticle>{" "}
+        <Tags tags={tagsCollection} />
+      </StyledArticle>
     </>
   );
 }

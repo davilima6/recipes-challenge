@@ -12,7 +12,7 @@ export type RecipeDetails = Recipe & {
     total: number;
     items: {
       name: string;
-    };
+    }[];
   };
 };
 
