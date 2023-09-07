@@ -5,6 +5,7 @@ const NODE_MODULES_EXCEPT_ESM_PACKAGES =
 
 const createJestConfig = nextJest({ dir: "./" });
 const customJestConfig = {
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testEnvironment: "jest-environment-jsdom",
 };
 
