@@ -1,15 +1,13 @@
-import remark from "remark";
+import { remark } from "remark";
 import html from "remark-html";
 
-export async function markdownToHtml(
-  markdownString: string
-): Promise<string | undefined> {
+export async function markdownToHtml(markdownString: string): Promise<string> {
   if (!markdownString) {
-    return;
+    return "";
   }
 
   const processedContent = await remark().use(html).process(markdownString);
-  const contentHtml = processedContent.toString();
+  const htmlContent = processedContent.toString();
 
-  return contentHtml;
+  return htmlContent;
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import { RecipeDetails } from "../lib/types";
+import { useFormattedRecipe } from "../lib/useFormattedRecipe";
 
 type RecipeDetailsProps = {
   recipe: RecipeDetails;
@@ -76,13 +77,14 @@ const StyledDescription = styled(StyledText)`
 
 
 export function RecipeDetails({ recipe }: RecipeDetailsProps) {
+  const formattedRecipe = useFormattedRecipe(recipe);
   const {
     calories,
     chef,
     description,
     photo: { height, url: recipePhotoUrl, width },
     title,
-  } = recipe;
+  } = formattedRecipe;
 
   return (
     <>
@@ -95,8 +97,8 @@ export function RecipeDetails({ recipe }: RecipeDetailsProps) {
           <StyledImage
             src={recipePhotoUrl}
             alt={title}
-            width={width}
             height={height}
+            width={width}
           />
           <StyledImageLabel>{calories} kcal</StyledImageLabel>
         </StyledImageContainer>

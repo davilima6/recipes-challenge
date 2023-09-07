@@ -5,6 +5,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import { Recipe } from "../lib/types";
+import { useFormattedRecipe } from "../lib/useFormattedRecipe";
 
 type RecipeItemProps = {
   recipe: Recipe;
@@ -50,13 +51,14 @@ const StyledText = styled.p`
 `;
 
 export function RecipeItem({ recipe }: RecipeItemProps) {
+  const formattedRecipe = useFormattedRecipe(recipe);
   const {
     calories,
     description,
     photo: { height, url: recipeImageUrl, width },
     sys: { id },
     title,
-  } = recipe;
+  } = formattedRecipe;
 
   return (
     <StyledListItem key={id}>
