@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-import { RecipeDetails } from "../lib/types";
+import { RecipeDetails } from "../../lib/types";
 
 type TagsProps = {
   tags: RecipeDetails["tagsCollection"];

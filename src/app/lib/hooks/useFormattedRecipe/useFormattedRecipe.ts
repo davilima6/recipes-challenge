@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Recipe, RecipeDetails } from "./types";
+import { Recipe, RecipeDetails } from "../../types";
 import { formatRecipe } from "./useFormattedRecipe.utils";
 
 export function useFormattedRecipe<R extends Recipe | RecipeDetails>(

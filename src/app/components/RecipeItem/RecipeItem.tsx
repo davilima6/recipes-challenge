@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-import { Recipe } from "../lib/types";
-import { useFormattedRecipe } from "../lib/useFormattedRecipe";
+import { Recipe } from "../../lib/types";
+import { useFormattedRecipe } from "../../lib/hooks/useFormattedRecipe";
 
 type RecipeItemProps = {
   recipe: Recipe;
@@ -55,7 +55,7 @@ export function RecipeItem({ recipe }: RecipeItemProps) {
   const {
     calories,
     description,
-    photo: { height, url: recipeImageUrl, width },
+    photo: { height, url: photoUrl, width },
     sys: { id },
     title,
   } = formattedRecipe;
@@ -68,7 +68,7 @@ export function RecipeItem({ recipe }: RecipeItemProps) {
         title="Click for the recipe details"
       >
         <StyledImage
-          src={recipeImageUrl}
+          src={photoUrl}
           alt={title}
           height={height}
           width={width}

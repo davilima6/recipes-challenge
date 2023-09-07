@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-import { Tags } from "./Tags";
-import { RecipeDetails } from "../lib/types";
-import { useFormattedRecipe } from "../lib/useFormattedRecipe";
+import { Tags } from "../Tags";
+import { RecipeDetails } from "../../lib/types";
+import { useFormattedRecipe } from "../../lib/hooks/useFormattedRecipe";
 
 type RecipeDetailsProps = {
   recipe: RecipeDetails;
@@ -86,7 +86,7 @@ export function RecipeDetails({ recipe }: RecipeDetailsProps) {
     calories,
     chef,
     description,
-    photo: { height, url: recipePhotoUrl, width },
+    photo: { height, url: photoUrl, width },
     tagsCollection,
     title,
   } = formattedRecipe;
@@ -101,7 +101,7 @@ export function RecipeDetails({ recipe }: RecipeDetailsProps) {
           <StyledHeading>{title}</StyledHeading>
           <StyledImageContainer>
             <StyledImage
-              src={recipePhotoUrl}
+              src={photoUrl}
               alt={title}
               height={height}
               width={width}

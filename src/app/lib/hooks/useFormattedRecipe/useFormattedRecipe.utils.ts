@@ -1,5 +1,5 @@
-import { markdownToHtml } from "./markdownToHtml";
-import { Recipe, RecipeDetails } from "./types";
+import { markdownToHtml } from "../../markdownToHtml";
+import { Recipe, RecipeDetails } from "../../types";
 
 export async function formatRecipe<R extends Recipe | RecipeDetails>(
   markdownRecipe: R

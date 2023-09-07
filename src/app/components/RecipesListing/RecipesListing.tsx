@@ -2,8 +2,8 @@
 
 import styled from "styled-components";
 
-import type { Recipe } from "../lib/types";
-import { RecipeItem } from "./RecipeItem";
+import type { Recipe } from "../../lib/types";
+import { RecipeItem } from "../RecipeItem";
 
 type RecipesProps = {
   recipes: Recipe[];
