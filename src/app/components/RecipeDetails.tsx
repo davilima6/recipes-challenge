@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-import { Tags } from "../components/tags";
+import { Tags } from "./Tags";
 import { RecipeDetails } from "../lib/types";
 import { useFormattedRecipe } from "../lib/useFormattedRecipe";
 

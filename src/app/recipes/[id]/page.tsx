@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { RecipeDetails } from "../../components/recipeDetails";
+import { RecipeDetails } from "../../components/RecipeDetails";
 import Layout from "../../layout";
 import { getRecipeData, getSortedRecipesData } from "../../lib/recipes";
 import { Recipe } from "../../lib/types";

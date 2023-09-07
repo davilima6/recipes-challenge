@@ -1,4 +1,4 @@
-import { RecipesListing } from "../components/recipesListing";
+import { RecipesListing } from "../components/RecipesListing";
 import { getSortedRecipesData } from "../lib/recipes";
 import styles from "./recipes.module.css";
 
