@@ -28,7 +28,7 @@ const StyledArticle = styled.article`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
+  padding: 1rem;
   position: relative;
 `;
 
@@ -73,6 +73,7 @@ const StyledRecipeAuthor = styled(StyledText)`
 `;
 
 const StyledDescription = styled(StyledText)`
+  line-height: 1.5;
   padding: 1rem 3rem;
 `;
 
