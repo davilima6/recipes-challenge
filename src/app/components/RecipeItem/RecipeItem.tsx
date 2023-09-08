@@ -1,54 +1,19 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import styled from "styled-components";
-
-import { Recipe } from "../../lib/types";
 import { useFormattedRecipe } from "../../lib/hooks/useFormattedRecipe";
+import { Recipe } from "../../lib/types";
+import {
+  StyledDescription,
+  StyledHeading,
+  StyledImage,
+  StyledImageLabel,
+  StyledImageLink,
+  StyledListItem,
+} from "./RecipeItem.styles";
 
 type RecipeItemProps = {
   recipe: Recipe;
 };
-
-const StyledListItem = styled.li`
-  margin-bottom: 5px;
-  margin-right: 5px;
-`;
-
-const StyledHeading = styled.h5`
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  min-height: 3rem;
-`;
-
-const StyledImage = styled(Image)`
-  border-radius: var(--border-radius);
-  display: block;
-  height: 100%;
-  width: 100%;
-`;
-
-const StyledImageLink = styled(Link)`
-  display: inline-flex;
-  margin-bottom: 0.5rem;
-  position: relative;
-`;
-
-const StyledImageLabel = styled.span`
-  background-color: #0070f3;
-  border-top-right-radius: var(--border-radius);
-  bottom: 0;
-  color: #fff;
-  padding: 0 5px;
-  position: absolute;
-  z-index: 10;
-`;
-
-const StyledDescription = styled.div`
-  font-size: 1rem;
-  margin: 0;
-`;
 
 export function RecipeItem({ recipe }: RecipeItemProps) {
   const formattedRecipe = useFormattedRecipe(recipe);
