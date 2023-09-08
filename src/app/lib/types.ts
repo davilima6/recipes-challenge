@@ -1,3 +1,10 @@
+import { ApolloQueryResult } from "@apollo/client";
+
+type Collection<T> = {
+  total: number;
+  items: T[];
+};
+
 export type Recipe = {
   calories: number;
   description: string;
@@ -8,28 +15,23 @@ export type Recipe = {
 
 export type RecipeDetails = Recipe & {
   chef: { name: string } | null;
-  tagsCollection: {
-    total: number;
-    items: {
-      name: string;
-    }[];
-  };
+  tagsCollection: Collection<{ name: string }>;
 };
 
-export type Response = {
-  error?: Error;
-  loading: boolean;
+type ResponseItem<T> = {
+  [itemName: string]: T;
 };
 
-export type RecipeResponse = Response & {
-  data: { recipe: RecipeDetails };
+type ResponseCollection<T> = {
+  [collectionName: string]: Collection<T>;
 };
 
-export type RecipesResponse = Response & {
-  data: {
-    recipeCollection: {
-      total: number;
-      items: Recipe[];
-    };
-  };
+type Response<T> = Omit<ApolloQueryResult<T>, "data"> & {
+  data: T extends Array<infer U>
+    ? ResponseCollection<U>
+    : ResponseItem<T>;
 };
+
+export type RecipesResponse = Response<Recipe[]>;
+
+export type RecipeResponse = Response<RecipeDetails>;
