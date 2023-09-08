@@ -1,6 +1,5 @@
 "use client";
 
-import { useFormattedRecipe } from "../../lib/hooks/useFormattedRecipe";
 import { Recipe } from "../../lib/types";
 import {
   StyledDescription,
@@ -16,14 +15,13 @@ type RecipeItemProps = {
 };
 
 export function RecipeItem({ recipe }: RecipeItemProps) {
-  const formattedRecipe = useFormattedRecipe(recipe);
   const {
     calories,
     description,
     photo: { height, url: photoUrl, width },
     sys: { id },
     title,
-  } = formattedRecipe;
+  } = recipe;
 
   return (
     <StyledListItem>

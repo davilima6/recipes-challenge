@@ -1,6 +1,5 @@
 "use client";
 
-import { useFormattedRecipe } from "../../lib/hooks/useFormattedRecipe";
 import { RecipeDetails } from "../../lib/types";
 import { Tags } from "../Tags";
 import {
@@ -20,7 +19,6 @@ type RecipeDetailsProps = {
 };
 
 export function RecipeDetails({ recipe }: RecipeDetailsProps) {
-  const formattedRecipe = useFormattedRecipe(recipe);
   const {
     calories,
     chef,
@@ -28,7 +26,7 @@ export function RecipeDetails({ recipe }: RecipeDetailsProps) {
     photo: { height, url: photoUrl, width },
     tagsCollection,
     title,
-  } = formattedRecipe;
+  } = recipe;
 
   return (
     <>
