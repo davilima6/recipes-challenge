@@ -1,5 +1,6 @@
-import { mockedRecipe, mockedMarkdownRecipe } from "./mocks";
-import { formatRecipe } from "./recipes";
+import * as apolloClient from "./apolloClient";
+import { mockedMarkdownRecipe, mockedRecipe } from "./mocks";
+import { formatRecipe, getRecipeData, getSortedRecipesData } from "./recipes";
 import { RecipeDetails } from "./types";
 
 jest.mock("./apolloClient", () => ({
@@ -23,6 +24,82 @@ describe("recipes", () => {
     });
   });
 
-  describe.skip("getRecipeData()", () => {});
-  describe.skip("getSortedRecipesData()", () => {});
+  describe("getSortedRecipesData()", () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it("calls client's methods as expected", async () => {
+      const QUERY_NAME = "AllRecipes";
+      const mockedQuery = jest.fn(async () => ({
+        data: { recipeCollection: { items: [], total: 0 } },
+      }));
+
+      const clientSpy = jest
+        .spyOn(apolloClient, "getClient")
+        // @ts-ignore
+        .mockReturnValue({ query: mockedQuery });
+
+      getSortedRecipesData();
+
+      expect(clientSpy).toHaveBeenCalledTimes(1);
+      expect(mockedQuery).toHaveBeenCalledTimes(1);
+      expect(mockedQuery).toHaveBeenCalledWith(
+        expect.objectContaining({
+          query: expect.objectContaining({
+            definitions: expect.arrayContaining([
+              expect.objectContaining({
+                kind: "OperationDefinition",
+                name: {
+                  kind: "Name",
+                  value: QUERY_NAME,
+                },
+              }),
+            ]),
+          }),
+        })
+      );
+    });
+  });
+
+  describe("getRecipeData()", () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it("calls client's methods as expected", async () => {
+      const QUERY_NAME = "OneRecipe";
+      const QUERY_ID = "123";
+
+      const mockedQuery = jest.fn(async () => ({
+        data: { recipe: {} },
+      }));
+
+      const clientSpy = jest
+        .spyOn(apolloClient, "getClient")
+        // @ts-ignore
+        .mockReturnValue({ query: mockedQuery });
+
+      getRecipeData(QUERY_ID);
+
+      expect(clientSpy).toHaveBeenCalledTimes(1);
+      expect(mockedQuery).toHaveBeenCalledTimes(1);
+      expect(mockedQuery).toHaveBeenCalledWith(
+        expect.objectContaining({
+          query: expect.objectContaining({
+            definitions: expect.arrayContaining([
+              expect.objectContaining({
+                kind: "OperationDefinition",
+                name: {
+                  kind: "Name",
+                  value: QUERY_NAME,
+                },
+              }),
+            ]),
+          }),
+          variables: { id: QUERY_ID },
+        })
+      );
+    });
+  });
 });
