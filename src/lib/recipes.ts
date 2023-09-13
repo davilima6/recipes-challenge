@@ -1,7 +1,6 @@
 import { getClient } from "./apolloClient";
 import { ALL_RECIPES, ONE_RECIPE } from "./graphqlQueries";
 import { markdownToHtml } from "./markdownToHtml";
-
 import {
   Recipe,
   RecipeDetails,

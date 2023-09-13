@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
-import { mockedRecipe } from "../../lib/mocks";
+import { mockedRecipe } from "@/lib/mocks";
 import { RecipesListing } from "./RecipesListing";
 
 const ANOTHER_MOCKED_RECIPE = {

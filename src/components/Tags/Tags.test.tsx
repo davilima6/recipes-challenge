@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
-import { mockedTagCollection } from "../../lib/mocks";
+import { mockedTagCollection } from "@/lib/mocks";
 import { Tags } from "./Tags";
 
 describe("Tags", () => {

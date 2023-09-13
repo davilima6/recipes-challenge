@@ -1,6 +1,6 @@
 "use client";
 
-import { Recipe } from "../../lib/types";
+import { Recipe } from "@/lib/types";
 import {
   StyledDescription,
   StyledHeading,
@@ -30,12 +30,7 @@ export function RecipeItem({ recipe }: RecipeItemProps) {
         href={`/recipes/${id}`}
         title="Click for the recipe details"
       >
-        <StyledImage
-          src={photoUrl}
-          alt={title}
-          height={height}
-          width={width}
-        />
+        <StyledImage src={photoUrl} alt={title} height={height} width={width} />
         <StyledImageLabel>{calories} kcal</StyledImageLabel>
       </StyledImageLink>
       <StyledDescription dangerouslySetInnerHTML={{ __html: description }} />
