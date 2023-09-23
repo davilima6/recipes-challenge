@@ -1,9 +1,9 @@
 import Head from "next/head";
 
-import { RecipeDetails } from "../../components/RecipeDetails";
-import Layout from "../../layout";
-import { getRecipeData, getSortedRecipesData } from "../../lib/recipes";
-import { Recipe } from "../../lib/types";
+import Layout from "@/app/layout";
+import { RecipeDetails } from "@/components/RecipeDetails";
+import { getRecipeData, getSortedRecipesData } from "@/lib/recipes";
+import { Recipe } from "@/lib/types";
 
 type RouteParam = {
   params: {

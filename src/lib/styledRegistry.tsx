@@ -8,7 +8,7 @@ export default function StyledComponentsRegistry({
   children,
 }: React.PropsWithChildren) {
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
-  const isServer = typeof window === "undefined";
+  const isBrowser = typeof window !== "undefined";
 
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement();
@@ -16,7 +16,7 @@ export default function StyledComponentsRegistry({
     return <>{styles}</>;
   });
 
-  if (!isServer) {
+  if (isBrowser) {
     return <>{children}</>;
   }
 

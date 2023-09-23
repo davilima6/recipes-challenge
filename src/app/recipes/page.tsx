@@ -1,5 +1,5 @@
-import { RecipesListing } from "../components/RecipesListing";
-import { getSortedRecipesData } from "../lib/recipes";
+import { RecipesListing } from "@/components/RecipesListing";
+import { getSortedRecipesData } from "@/lib/recipes";
 import styles from "./recipes.module.css";
 
 export default async function Home() {

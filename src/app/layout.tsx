@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import React from "react";
 
+import StyledComponentsRegistry from "@/lib/styledRegistry";
 import "./globals.css";
-import StyledComponentsRegistry from "./lib/styledRegistry";
 
 const inter = Inter({ subsets: ["latin"] });
 

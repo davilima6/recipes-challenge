@@ -1,7 +1,7 @@
 "use client";
 
-import type { Recipe } from "../../lib/types";
-import { RecipeItem } from "../RecipeItem";
+import { RecipeItem } from "@/components/RecipeItem";
+import type { Recipe } from "@/lib/types";
 import { StyledList, StyledSection } from "./RecipesListing.styles";
 
 type RecipesProps = {

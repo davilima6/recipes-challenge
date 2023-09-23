@@ -1,7 +1,7 @@
 "use client";
 
-import { RecipeDetails } from "../../lib/types";
-import { Tags } from "../Tags";
+import { Tags } from "@/components/Tags";
+import { RecipeDetails } from "@/lib/types";
 import {
   StyledArticle,
   StyledBackLink,

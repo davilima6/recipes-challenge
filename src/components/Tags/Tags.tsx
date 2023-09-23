@@ -1,6 +1,6 @@
 "use client";
 
-import { RecipeDetails } from "../../lib/types";
+import { RecipeDetails } from "@/lib/types";
 import { StyledTags, StyledTag } from "./Tags.styles";
 
 type TagsProps = {
